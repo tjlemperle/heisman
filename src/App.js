@@ -13,7 +13,7 @@ class App extends Component{
       currentPlayer: {}
     }
 
-    // this.componentDidMount = this.componentDidMount.bind(this)
+    this.trainPlayer = this.trainPlayer.bind(this)
   }
   
   componentDidMount(){
@@ -40,8 +40,8 @@ class App extends Component{
     return (
       <div className="App">
         <Header />
-        <CurrentPlayer {... this.state.currentPlayer} />
-        <button onClick={this.trainPlayer(this.state.currentPlayer)}>Train Player</button>
+        <CurrentPlayer {... this.state.currentPlayer} trainPlayer={this.trainPlayer}/>
+
       </div>
     );
   }

@@ -11,7 +11,7 @@ class CurrentPlayer extends Component{
     }
 
     render(){
-        const {name, rating, arm, speed, decisions} = this.props;
+        const {name, rating, arm, speed, decision} = this.props;
         return(
             <div className="player-container">
                 <div className="name-container">{name}</div>
@@ -23,8 +23,9 @@ class CurrentPlayer extends Component{
                         <span>Rating: {rating}</span>
                         <span>Arm: {arm}</span>
                         <span>Speed: {speed}</span>
-                        <span>Decisions: {decisions} </span>
+                        <span>Decisions: {decision} </span>
                     </div>
+                    <button className='button' onClick={this.trainPlayer}>Train Player</button>
                 </div>
                 
             </div>
