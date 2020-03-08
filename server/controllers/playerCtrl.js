@@ -40,7 +40,7 @@ module.exports ={
         const rating = Math.ceil((randArm + randDec + randSpeed)/ 3)
         let randName = celebs[randIndex].name
 
-        const player = {
+        let player = {
             name: randName,
             speed: randSpeed,
             arm: randArm,
@@ -56,10 +56,12 @@ module.exports ={
     },
 
     trainPlayer: (req, res) => {
-        const {arm, speed, decision} = req.body
+        let {arm, speed, decision} = req.body
         arm += getRandomInt(1,3)
         speed += getRandomInt(1,3)
         decision += getRandomInt(1,3)
+
+        console.log(currentPlayer)
 
         res.status(200).send(currentPlayer)
     },

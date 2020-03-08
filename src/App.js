@@ -27,7 +27,7 @@ class App extends Component{
   }
 
   trainPlayer(currentPlayer){
-    axios.put('http://localhost:3333/api/trainPlayer')
+    axios.put('http://localhost:3333/api/trainPlayer', currentPlayer)
       .then(res => {
         this.setState({
         currentPlayer: res.data[0]
