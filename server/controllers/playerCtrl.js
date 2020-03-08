@@ -56,10 +56,11 @@ module.exports ={
     },
 
     trainPlayer: (req, res) => {
-        let {arm, speed, decision} = req.body
-        arm += getRandomInt(1,3)
-        speed += getRandomInt(1,3)
-        decision += getRandomInt(1,3)
+        // let {arm, speed, decision} = req.body
+        currentPlayer[0].arm += getRandomInt(1,3)
+        currentPlayer[0].speed += getRandomInt(1,3)
+        currentPlayer[0].decision += getRandomInt(1,3)
+        currentPlayer[0].overall = Math.ceil((currentPlayer[0].arm + currentPlayer[0].speed + currentPlayer[0].decision) / 3)
 
         console.log(currentPlayer)
 
