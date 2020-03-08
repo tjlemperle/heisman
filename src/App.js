@@ -10,28 +10,38 @@ class App extends Component{
     super()
 
     this.state ={
-      // currentPlayer: 
+      currentPlayer: {}
     }
+
+    // this.componentDidMount = this.componentDidMount.bind(this)
   }
   
   componentDidMount(){
     axios.get('http://localhost:3333/api/startingPlayer')
       .then(res => {
         this.setState({
-          currentPlayer: res.data
+          currentPlayer: res.data[0]
         })
+        console.log(this.state.currentPlayer)
       })
-      console.log(this.currentPlayer)
+  }
+
+  trainPlayer(currentPlayer){
+    axios.put('http://localhost:3333/api/trainPlayer')
+      .then(res => {
+        this.setState({
+        currentPlayer: res.data[0]
+        })
+      }
+      )
   }
 
   render(){
     return (
       <div className="App">
         <Header />
-
-        <CurrentPlayer />
-
-
+        <CurrentPlayer {... this.state.currentPlayer} />
+        <button onClick={this.trainPlayer(this.state.currentPlayer)}>Train Player</button>
       </div>
     );
   }

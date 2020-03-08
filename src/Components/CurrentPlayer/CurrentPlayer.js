@@ -11,20 +11,22 @@ class CurrentPlayer extends Component{
     }
 
     render(){
+        const {name, rating, arm, speed, decisions} = this.props;
         return(
             <div className="player-container">
-                <div className="name-container">John Elway</div>
+                <div className="name-container">{name}</div>
                 <div className='photo-parent'>
                     <div className="photo-container">
                         <div className='player-photo'>Photo ID</div>
                     </div>
                     <div className='stats-container'>
-                        <span>Rating: </span>
-                        <span>Arm: </span>
-                        <span>Speed: </span>
-                        <span>Decisions: </span>
+                        <span>Rating: {rating}</span>
+                        <span>Arm: {arm}</span>
+                        <span>Speed: {speed}</span>
+                        <span>Decisions: {decisions} </span>
                     </div>
                 </div>
+                
             </div>
         )
     }

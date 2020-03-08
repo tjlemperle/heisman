@@ -55,13 +55,13 @@ module.exports ={
         res.status(200).send(currentPlayer)
     },
 
-    // trainPlayer: (req, res) => {
-    //     let {arm, speed, decision} = req.body
-    //     player[arm] = arm + getRandomInt(1,3)
-    //     speed = speed + getRandomInt(1,3)
-    //     decision = decision + getRandomInt(1,3)
+    trainPlayer: (req, res) => {
+        const {arm, speed, decision} = req.body
+        arm += getRandomInt(1,3)
+        speed += getRandomInt(1,3)
+        decision += getRandomInt(1,3)
 
-    //     res.status(200).send(currentPlayer)
-    // },
+        res.status(200).send(currentPlayer)
+    },
 
 }
