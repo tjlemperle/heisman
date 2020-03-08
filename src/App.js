@@ -38,7 +38,7 @@ class App extends Component{
       )
   }
 
-  newPlayer(currentPlayer){
+  newPlayer = (currentPlayer) => {
     axios.post('http://localhost:3333/api/newPlayer', currentPlayer)
       .then(res => {
         this.setState({
