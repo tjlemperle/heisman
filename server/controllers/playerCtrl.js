@@ -11,6 +11,7 @@ function getRandomInt(min, max) {
 module.exports ={
     getStarter: (req, res) => {
 
+        if(currentPlayer.length === 0){
         const randIndex = Math.ceil(Math.random() * celebs.length-1)
         // const randArm = Math.ceil(Math.random() * 100)
         // const randDec = Math.ceil(Math.random() * 100)
@@ -25,8 +26,9 @@ module.exports ={
             decision: 30,
             overall: 30,
         }
-
+        
         currentPlayer.push(starter)
+    }
 
         res.status(200).send(currentPlayer)
     },

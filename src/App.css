@@ -4,6 +4,8 @@ body {
   height: 100vh;
 }
 
-.button{
+.player-container{
+  display: flex;
 
 }
+
