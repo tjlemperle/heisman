@@ -53,8 +53,11 @@ class App extends Component{
       )
   }
 
-  play = (currentPlayer, summary) => {
-    axios.post('http://localhost:3333/api/play', currentPlayer)
+
+
+  play = () => {
+    // console.log("this is the play funciton", currentPlayer)
+    axios.post('http://localhost:3333/api/play', this.state)
       .then(res => {
         this.setState({
         summary: res.data
@@ -71,10 +74,10 @@ class App extends Component{
         {... this.state.currentPlayer} 
         trainPlayer={this.trainPlayer} 
         newPlayer={this.newPlayer}
+        play={this.play}
         />
         <Summary 
         {... this.state.summary}
-        play={this.play}
         />
 
       </div>

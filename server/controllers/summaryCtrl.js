@@ -1,5 +1,5 @@
 const celebs = require('../../src/array')
-
+// let currentPlayer = []
 
 
 function getRandomInt(min, max) {
@@ -12,8 +12,8 @@ function getRandomInt(min, max) {
 module.exports = {
     play: (req, res) => {
         let opponents = []
-        let {overall} = req.body;
-        let {wins, losses, money} = req.body;
+        let overall = req.body.currentPlayer.overall
+        let {wins, losses, money} = req.body.summary;
         //for loop for each index in opponents array.  random name and random attributes.  
         //compare to currentPlayer, if currentPlayer overall is >= then increase money by 1. 
         //increment wins and losses as well.  
@@ -33,20 +33,22 @@ module.exports = {
                 overall: rating,
             }
     
-    
+            
             opponents.push(player)
            
         }
         
-        for(let i=0; 1 < opponents.length-1; i++){
-            if(opponents.overall >= player.overall){
+        for(let i=0; i < opponents.length-1; i++){
+
+            if(overall >= opponents[i].overall){
                 money++
                 wins++
             } else {
                 losses++
             }
+            console.log("summary info in loop", money, wins, losses)
         }
 
-        res.status(200).send(summary)
+        res.status(200).send({money, wins, losses})
     }
 }

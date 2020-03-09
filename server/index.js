@@ -11,7 +11,7 @@ app.get('/api/startingPlayer', playerCtrl.getStarter)
 app.post('/api/newPlayer', playerCtrl.newPlayer)
 app.put('/api/trainPlayer', playerCtrl.trainPlayer)
 
-app.get('/api/play', summaryCtrl.play)
+app.post('/api/play', summaryCtrl.play)
 // app.post('/api/champion/:id', summaryCtrl.champion)
 // app.delete('/api/deleteChampion', summaryCtrl.deleteChampion)
 
