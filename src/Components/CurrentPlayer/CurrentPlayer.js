@@ -25,6 +25,7 @@ class CurrentPlayer extends Component{
                         <span>Speed: {speed}</span>
                         <span>Decisions: {decision} </span>
                     </div>
+                    <button className='button' onClick={this.props.play}>Play</button>
                     <button className='button' onClick={this.props.trainPlayer}>Train Player</button>
                     <button className='button' onClick={this.props.newPlayer}>New Player</button>
                 </div>

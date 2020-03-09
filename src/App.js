@@ -12,7 +12,12 @@ class App extends Component{
 
     this.state ={
       currentPlayer: {},
-      newPlayer: []
+      newPlayer: [],
+      summary: {
+        wins: 0,
+        losses: 0,
+        money: 0
+      }
     }
 
     this.trainPlayer = this.trainPlayer.bind(this)
@@ -48,6 +53,16 @@ class App extends Component{
       )
   }
 
+  play = (currentPlayer, summary) => {
+    axios.post('http://localhost:3333/api/play', currentPlayer)
+      .then(res => {
+        this.setState({
+        summary: res.data
+        })
+      }
+      )
+  }
+
   render(){
     return (
       <div className="App">
@@ -57,7 +72,10 @@ class App extends Component{
         trainPlayer={this.trainPlayer} 
         newPlayer={this.newPlayer}
         />
-        <Summary />
+        <Summary 
+        {... this.state.summary}
+        play={this.play}
+        />
 
       </div>
     );

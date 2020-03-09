@@ -11,10 +11,15 @@ class Summary extends Component{
     }
 
     render(){
-        const {name, overall, arm, speed, decision} = this.props;
+        const {wins, losses, money} = this.props;
         return(
+            
             <div className="player-container">
-
+                <div className='money-container'>$ {this.props.money}</div>
+                <div className='record-container'>
+                    <div>Wins: {this.props.wins}</div>
+                    <div>Losses: {this.props.losses}</div>
+                </div>
                 
             </div>
         )
