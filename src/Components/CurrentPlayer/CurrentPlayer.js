@@ -25,9 +25,9 @@ class CurrentPlayer extends Component{
                     </div>
                     <div className='stats-container'>
                         <h1>Rating: {overall}</h1>
-                        <span>Arm: {arm}</span>
+                        <span>Strength: {arm}</span>
                         <span>Speed: {speed}</span>
-                        <span>Decisions: {decision} </span>
+                        <span>Toughness: {decision} </span>
                     </div>     
                 </div>
                     <div className='buttons-container'>

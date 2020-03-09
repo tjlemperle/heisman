@@ -43,11 +43,14 @@ class App extends Component{
       )
   }
 
-  newPlayer = (currentPlayer) => {
-    axios.post('http://localhost:3333/api/newPlayer', currentPlayer)
+  newPlayer = () => {
+
+    axios.post('http://localhost:3333/api/newPlayer', this.state)
       .then(res => {
+        console.log(res)
         this.setState({
-        currentPlayer: res.data[0]
+        currentPlayer: res.data.currentPlayer[0],
+        summary: {wins: this.state.summary.wins, losses: this.state.summary.losses, money: res.data.money}
         })
       }
       )

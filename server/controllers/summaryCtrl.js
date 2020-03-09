@@ -38,7 +38,7 @@ module.exports = {
            
         }
         
-        for(let i=0; i < opponents.length-1; i++){
+        for(let i=0; i < opponents.length; i++){
 
             if(overall >= opponents[i].overall){
                 money++
