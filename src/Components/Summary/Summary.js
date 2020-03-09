@@ -15,10 +15,16 @@ class Summary extends Component{
         return(
             
             <div className="player-container">
-                <div className='money-container'>$ {this.props.money}</div>
+                <div className='money-container'>$ {money}</div>
+                
                 <div className='record-container'>
-                    <div>Wins: {this.props.wins}</div>
-                    <div>Losses: {this.props.losses}</div>
+                    <div className="record-alltime">
+                        <div>Wins: {wins}</div>
+                        <div>Losses: {losses}</div>
+                    </div>
+                    <div className="record-current">
+
+                    </div>
                 </div>
                 
             </div>

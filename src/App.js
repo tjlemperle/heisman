@@ -70,16 +70,17 @@ class App extends Component{
     return (
       <div className="App">
         <Header />
-        <CurrentPlayer 
-        {... this.state.currentPlayer} 
-        trainPlayer={this.trainPlayer} 
-        newPlayer={this.newPlayer}
-        play={this.play}
-        />
-        <Summary 
-        {... this.state.summary}
-        />
-
+        <div className='boxes'>
+          <CurrentPlayer 
+          {... this.state.currentPlayer} 
+          trainPlayer={this.trainPlayer} 
+          newPlayer={this.newPlayer}
+          play={this.play}
+          />
+          <Summary 
+          {... this.state.summary}
+          />
+        </div>
       </div>
     );
   }

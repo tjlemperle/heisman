@@ -34,6 +34,9 @@ module.exports ={
 
     newPlayer: (req, res) => {
 
+        // let {money} = req.body.summary
+        // money -= 50;
+
         const randIndex = Math.ceil(Math.random() * celebs.length-1)
         const randArm = getRandomInt(1, 100)
         const randDec = getRandomInt(1, 100)

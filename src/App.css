@@ -4,8 +4,8 @@ body {
   height: 100vh;
 }
 
-.player-container{
+.boxes{
   display: flex;
-
+  justify-content: center;
 }
 
