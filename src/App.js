@@ -26,6 +26,7 @@ class App extends Component{
   componentDidMount(){
     axios.get('http://localhost:3333/api/startingPlayer')
       .then(res => {
+        document.title= 'Celebrity Death Match'
         this.setState({
           currentPlayer: res.data[0]
         })
@@ -33,11 +34,12 @@ class App extends Component{
       })
   }
 
-  trainPlayer(currentPlayer){
-    axios.put('http://localhost:3333/api/trainPlayer', currentPlayer)
+  trainPlayer = () => {
+    axios.put('http://localhost:3333/api/trainPlayer', this.state)
       .then(res => {
         this.setState({
-        currentPlayer: res.data[0]
+        currentPlayer: res.data.currentPlayer[0],
+        summary: {wins: this.state.summary.wins, losses: this.state.summary.losses, money: res.data.money}
         })
       }
       )

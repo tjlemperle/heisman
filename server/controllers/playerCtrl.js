@@ -35,6 +35,8 @@ module.exports ={
     newPlayer: (req, res) => {
 
         let {money} = req.body.summary
+
+        if(money >= 50){
         money -= 50;
 
         const randIndex = Math.ceil(Math.random() * celebs.length-1)
@@ -55,20 +57,26 @@ module.exports ={
 
         currentPlayer.push(player)
         currentPlayer.splice(0, 1)
+        }   
  
         res.status(200).send({currentPlayer, money})
     },
 
     trainPlayer: (req, res) => {
         // let {arm, speed, decision} = req.body
+        let {money} = req.body.summary
+
+        if(money >= 5){
+        money -= 5;
+
         currentPlayer[0].arm += getRandomInt(1,3)
         currentPlayer[0].speed += getRandomInt(1,3)
         currentPlayer[0].decision += getRandomInt(1,3)
         currentPlayer[0].overall = Math.ceil((currentPlayer[0].arm + currentPlayer[0].speed + currentPlayer[0].decision) / 3)
 
-        console.log(currentPlayer)
-
-        res.status(200).send(currentPlayer)
+        // console.log(currentPlayer)
+        }
+        res.status(200).send({currentPlayer, money})
     },
 
 }
