@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const playerCtrl = require('./controllers/playerCtrl')
 const summaryCtrl = require('./controllers/summaryCtrl')
-const favoriteCtrl = require('./controllers/favoriteCtrl')
+
 
 const app = express()
 app.use(cors())
@@ -13,8 +13,8 @@ app.post('/api/newPlayer', playerCtrl.newPlayer)
 app.put('/api/trainPlayer', playerCtrl.trainPlayer)
 
 app.post('/api/play', summaryCtrl.play)
-app.post('/api/favorite', favoriteCtrl.add)
-app.delete('/api/favorite/:id', favoriteCtrl.delete)
+app.post('/api/add', playerCtrl.add)
+app.delete('/api/delete/:id', playerCtrl.delete)
 
 
 const port = 3333

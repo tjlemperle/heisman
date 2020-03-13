@@ -79,4 +79,18 @@ module.exports ={
         res.status(200).send({currentPlayer, money})
     },
 
+    add: (req, res) => {
+        const {player} = req.body
+        player.id = id
+        id++
+        saved.push(player)
+        res.status(200).send(saved)
+    },
+    delete: (req,res) => {
+        const {id} = req.params
+        const index = saved.findIndex(e => e.id === +id)
+        saved.splice(index, 1)
+        res.status(200).send(saved)
+    }
+
 }

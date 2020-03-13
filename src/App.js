@@ -5,7 +5,7 @@ import axios from 'axios'
 import CurrentPlayer from './Components/CurrentPlayer/CurrentPlayer'
 import Header from './Components/Header/Header';
 import Summary from './Components/Summary/Summary';
-import SearchBar from './Components/SearchBar/SearchBar';
+
 
 
 class App extends Component{
@@ -20,7 +20,6 @@ class App extends Component{
         losses: 0,
         money: 0
       },
-      favoritesArr: []
     }
 
     this.trainPlayer = this.trainPlayer.bind(this)
@@ -106,11 +105,6 @@ class App extends Component{
           {... this.state.summary}
           />         
         </div>
-        <SearchBar 
-        add = {this.add} 
-        delete = {this.delete}
-        />
-        
       </div>
     );
   }
