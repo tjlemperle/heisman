@@ -31,11 +31,8 @@ module.exports = {
                 arm: randArm,
                 decision: randDec,
                 overall: rating,
-            }
-    
-            
-            opponents.push(player)
-           
+            }           
+            opponents.push(player)         
         }
         
         for(let i=0; i < opponents.length; i++){

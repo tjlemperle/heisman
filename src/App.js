@@ -5,6 +5,8 @@ import axios from 'axios'
 import CurrentPlayer from './Components/CurrentPlayer/CurrentPlayer'
 import Header from './Components/Header/Header';
 import Summary from './Components/Summary/Summary';
+import SearchBar from './Components/SearchBar/SearchBar';
+
 
 class App extends Component{
   constructor(){
@@ -17,7 +19,8 @@ class App extends Component{
         wins: 0,
         losses: 0,
         money: 0
-      }
+      },
+      favoritesArr: []
     }
 
     this.trainPlayer = this.trainPlayer.bind(this)
@@ -26,7 +29,7 @@ class App extends Component{
   componentDidMount(){
     axios.get('http://localhost:3333/api/startingPlayer')
       .then(res => {
-        document.title= 'Celebrity Death Match'
+        document.title= 'Celebrity Death'
         this.setState({
           currentPlayer: res.data[0]
         })
@@ -46,7 +49,6 @@ class App extends Component{
   }
 
   newPlayer = () => {
-
     axios.post('http://localhost:3333/api/newPlayer', this.state)
       .then(res => {
         console.log(res)
@@ -71,6 +73,24 @@ class App extends Component{
       )
   }
 
+  add = ({favorite}) => {
+    axios.post('http://localhost:3333/api/add', this.favorite)
+    .then(res => {
+      this.setState({
+        favoritesArr: res.data
+      })
+    })
+  }
+
+  delete = (id) => {
+    axios.delete(`http://localhost:3333/api/delete/${id}`)
+    .then(res => {
+      this.setState({
+        favorite: res.data
+      })
+    })
+  }
+
   render(){
     return (
       <div className="App">
@@ -84,8 +104,13 @@ class App extends Component{
           />
           <Summary 
           {... this.state.summary}
-          />
+          />         
         </div>
+        <SearchBar 
+        add = {this.add} 
+        delete = {this.delete}
+        />
+        
       </div>
     );
   }
