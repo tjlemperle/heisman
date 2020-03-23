@@ -11,10 +11,11 @@ app.use(express.json())
 app.get('/api/startingPlayer', playerCtrl.getStarter)
 app.post('/api/newPlayer', playerCtrl.newPlayer)
 app.put('/api/trainPlayer', playerCtrl.trainPlayer)
-
 app.post('/api/play', summaryCtrl.play)
-app.post('/api/add', playerCtrl.add)
-app.delete('/api/delete/:id', playerCtrl.delete)
+
+app.post('/api/saved', playerCtrl.add)
+app.put('/api/saved/:id', playerCtrl.edit)
+app.delete('/api/saved/:id', playerCtrl.delete)
 
 
 const port = 3333

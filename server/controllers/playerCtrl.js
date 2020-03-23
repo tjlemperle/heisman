@@ -87,6 +87,21 @@ module.exports ={
         saved.push(player)
         res.status(200).send(saved)
     },
+
+    edit: (req, res) => {
+        const {name} = req.body
+        const updateID = req.params.id
+        const savedIndex = saved.findIndex(element => element.id == updateID)
+        let saved = saved[savedIndex]
+
+        saved[savedIndex]= {
+            id: saved.id, 
+            name: name || saved.name
+        }
+
+        res.status(200).send(saved)
+    },
+
     delete: (req,res) => {
         const {id} = req.params
         const index = saved.findIndex(e => e.id === +id)
