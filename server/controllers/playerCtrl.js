@@ -1,5 +1,6 @@
 const celebs = require('../../src/array')
 let currentPlayer = []
+let saved = []
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
